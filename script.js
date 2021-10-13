@@ -21,6 +21,10 @@ function advanceRound() {
 }
 
 function compareGuesses(human, computer, target) {
+  if (human === 0) {
+    window.alert("Hello? You can't guess zero...");
+    return;
+  }
   const comparedHuman = getAbsoluteDistance(target, human);
   const comparedComputer = getAbsoluteDistance(target, computer);
   if (comparedHuman === comparedComputer) {

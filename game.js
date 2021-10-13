@@ -29,7 +29,7 @@ guessButton.addEventListener('click', () => {
   targetNumberDisplay.innerText = target;
   
   // Determine if the human or computer wins:
-  const humanIsWinner = compareGuesses(currentHumanGuess, computerGuess, target)
+  const humanIsWinner = compareGuesses(currentHumanGuess, computerGuess, target);
   const winner = humanIsWinner ? 'human' : 'computer'
 
   // Update the correct score:
@@ -93,7 +93,7 @@ const handleValueChange = value => {
     addButton.setAttribute('disabled', true);
     subtractButton.removeAttribute('disabled');
   } 
-  else if (value <= 0) {
+  else if (value <= 2) {
     addButton.removeAttribute('disabled');
     subtractButton.setAttribute('disabled', true);
   }
