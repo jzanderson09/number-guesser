@@ -11,7 +11,10 @@ const targetNumberDisplay = document.getElementById('target-number');
 const computerWinsDisplay = document.getElementById('computer-wins');
 
 const guessButton = document.getElementById('guess');
-const nextRoundButton = document.getElementById('next-round')
+const nextRoundButton = document.getElementById('next-round');
+
+const addButton = document.getElementById('add');
+const subtractButton = document.getElementById('subtract');
 
 guessButton.addEventListener('click', () => {
   // Generate the target value
@@ -64,14 +67,12 @@ nextRoundButton.addEventListener('click', () => {
   // Reset the guess input box and the target number display:
   targetNumberDisplay.innerText = '?';
   guessButton.innerText = 'Make a Guess';
-  humanGuessInput.value = '';
+  humanGuessInput.value = '1';
+  addButton.removeAttribute('disabled');
   computerGuessDisplay.innerText = '?';
   computerWinsDisplay.innerText = '';
   guessButton.classList.remove('winning-text');
 });
-
-const addButton = document.getElementById('add');
-const subtractButton = document.getElementById('subtract');
 
 addButton.addEventListener('click', () => {
   humanGuessInput.value = +humanGuessInput.value + 1;
@@ -84,12 +85,14 @@ subtractButton.addEventListener('click', () => {
 });
 
 const handleValueChange = value => {
-  if (value > 0 && value <= 9) {
-    subtractButton.removeAttribute('disabled');
+  if (value > 0 && value < 10) {
     addButton.removeAttribute('disabled');
+    subtractButton.removeAttribute('disabled');
   } else if (value > 9) {
     addButton.setAttribute('disabled', true);
+    subtractButton.removeAttribute('disabled');
   } else if (value <= 0) {
+    addButton.removeAttribute('disabled');
     subtractButton.setAttribute('disabled', true);
   }
 }
