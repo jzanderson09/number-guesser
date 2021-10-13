@@ -88,10 +88,12 @@ const handleValueChange = value => {
   if (value > 0 && value < 10) {
     addButton.removeAttribute('disabled');
     subtractButton.removeAttribute('disabled');
-  } else if (value > 9) {
+  } 
+  else if (value > 9) {
     addButton.setAttribute('disabled', true);
     subtractButton.removeAttribute('disabled');
-  } else if (value <= 0) {
+  } 
+  else if (value <= 0) {
     addButton.removeAttribute('disabled');
     subtractButton.setAttribute('disabled', true);
   }
